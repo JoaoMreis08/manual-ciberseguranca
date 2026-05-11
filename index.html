@@ -23,16 +23,21 @@
 
     <main class="container">
         <section id="formacao" class="tab-content active">
-            <h2>Jogo: Phishing ou Real?</h2>
-            <p>Analise o e-mail abaixo e decida: é uma tentativa de ataque ou uma comunicação legítima?</p>
+            <div class="game-header">
+                <h2>Desafio: Detetive de Phishing</h2>
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <p id="question-number">Pergunta 1 de 5</p>
+            </div>
             
             <div class="game-container">
-                <div id="email-card" class="email-card">
-                    <div id="email-content"></div>
+                <div class="email-zoom-container">
+                    <img id="email-image" src="" alt="Exame de e-mail">
                 </div>
                 
                 <div class="game-controls">
-                    <button class="btn-real" onclick="checkAnswer(true)">Parece Real</button>
+                    <button class="btn-real" onclick="checkAnswer(true)">Parece Seguro</button>
                     <button class="btn-phishing" onclick="checkAnswer(false)">É Phishing!</button>
                 </div>
                 <div id="feedback" class="feedback"></div>
