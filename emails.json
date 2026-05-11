@@ -1,0 +1,12 @@
+[
+    {
+        "image": "assets/p1.png",
+        "isReal": false,
+        "explanation": "Phishing! O remetente utiliza um domínio '.co' em vez de '.com'."
+    },
+    {
+        "image": "assets/r1.png",
+        "isReal": true,
+        "explanation": "E-mail Real. Confirmado pelo selo de autenticidade da Microsoft."
+    }
+]
