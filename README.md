@@ -1,10 +1,10 @@
-# 🔐 Cybersecurity Hub
+#  Cybersecurity Hub
 
 **Plataforma interna de sensibilização para cibersegurança** – desenvolvida para uma empresa de mobiliário de luxo.
 
 ---
 
-## 📋 Sobre o Projeto
+##  Sobre o Projeto
 
 O **Cybersecurity Hub** é uma plataforma web criada para:
 
@@ -15,14 +15,14 @@ O **Cybersecurity Hub** é uma plataforma web criada para:
 
 ---
 
-## 🧩 Funcionalidades
+##  Funcionalidades
 
 | Secção | Descrição |
 | --- | --- |
-| 🏠 **Início** | Página de boas-vindas com acesso rápido às principais áreas |
-| 🖥️ **Infraestrutura** | Levantamento completo do parque tecnológico com avisos clicáveis sobre vulnerabilidades |
-| 📘 **Manual de Conduta** | Guia prático com boas práticas e procedimentos de emergência |
-| 🎯 **Simulador de Phishing** | Jogo interativo para testar a capacidade de detetar e-mails fraudulentos |
+|  **Início** | Página de boas-vindas com acesso rápido às principais áreas |
+|  **Infraestrutura** | Levantamento completo do parque tecnológico com avisos clicáveis sobre vulnerabilidades |
+|  **Manual de Conduta** | Guia prático com boas práticas e procedimentos de emergência |
+|  **Simulador de Phishing** | Jogo interativo para testar a capacidade de detetar e-mails fraudulentos |
 
 ---
 
@@ -36,7 +36,7 @@ O **Cybersecurity Hub** é uma plataforma web criada para:
 
 ---
 
-## 📁 Estrutura do Projeto
+##  Estrutura do Projeto
 cybersecurity-hub/
 │
 ├── index.html # Página principal
@@ -47,7 +47,8 @@ cybersecurity-hub/
 
 ---
 
-## 🔍 Detalhes da Infraestrutura (mapeada)
+##  Detalhes da Infraestrutura (mapeada)
+
 
 | Categoria | Especificação |
 | --- | --- |
@@ -64,7 +65,7 @@ cybersecurity-hub/
 
 ---
 
-## ⚠️ Avisos de Segurança (interativos)
+##  Avisos de Segurança (interativos)
 
 Ao clicar em certos elementos da secção **Infraestrutura**, são apresentados avisos sobre:
 
@@ -74,7 +75,7 @@ Ao clicar em certos elementos da secção **Infraestrutura**, são apresentados 
 
 ---
 
-## 🎮 Simulador de Phishing
+##  Simulador de Phishing
 
 O jogo apresenta 5 e-mails (imagens placeholder) e o utilizador deve classificar cada um como:
 
@@ -85,7 +86,7 @@ Após cada resposta, é dado feedback e a barra de progresso é atualizada.
 
 ---
 
-## 📚 Manual de Conduta – Conteúdos
+##  Manual de Conduta – Conteúdos
 
 ### Emergências
 - Phishing – como identificar e agir
@@ -98,29 +99,4 @@ Após cada resposta, é dado feedback e a barra de progresso é atualizada.
 - Perigos de Pen Drives encontradas
 - Smishing (SMS falsos)
 
----
 
-## 🚀 Como Utilizar
-
-1. **Abrir localmente**  
-   Abrir o ficheiro `index.html` num navegador moderno (Chrome, Firefox, Edge)
-
-2. **Navegação**  
-   Utilizar as tabs no topo para alternar entre as secções
-
-3. **Simulador**  
-   Clicar em "Parece Seguro" ou "É Phishing!" para responder
-
-4. **Infraestrutura**  
-   Clicar nos elementos com nome a vermelho para ver avisos de vulnerabilidade
-
----
-
-## 📦 Dependências Externas
-
-```html
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-
-<!-- Font Awesome (ícones) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
