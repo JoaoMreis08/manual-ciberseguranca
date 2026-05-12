@@ -1,79 +1,184 @@
-// Lógica das Tabs
-function openTab(evt, tabName) {
-    let contents = document.getElementsByClassName("tab-content");
-    for (let content of contents) content.style.display = "none";
-    
-    let buttons = document.getElementsByClassName("tab-btn");
-    for (let btn of buttons) btn.classList.remove("active");
+(() => {
+    const maxQuestions = 5;
 
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.classList.add("active");
-}
+    // Estado fechado dentro do módulo para evitar variáveis globais desnecessárias.
+    const gameState = {
+        scenarios: [],
+        gameScenarios: [],
+        currentQuestion: 0,
+        score: 0,
+        answerLocked: false
+    };
 
-// Lógica do Jogo de Phishing
-const scenarios = [
-    { image: "assets/p1.png", isReal: false, explanation: "O domínio do remetente é falso." },
-    { image: "assets/r1.png", isReal: true, explanation: "E-mail oficial da Microsoft." },
-    { image: "assets/p2.png", isReal: false, explanation: "Urgência falsa detetada!" },
-    // Adiciona quantos quiseres aqui...
-];
-
-let currentQuestion = 0;
-let score = 0;
-const totalQuestions = 5;
-let gameScenarios = [];
-
-function initGame() {
-    // Embaralha e escolhe 5 cenários aleatórios (Estilo Bom Condutor)
-    gameScenarios = [...scenarios].sort(() => 0.5 - Math.random()).slice(0, totalQuestions);
-    currentQuestion = 0;
-    score = 0;
-    loadQuestion();
-}
-
-function loadQuestion() {
-    if (currentQuestion < totalQuestions) {
-        const imgElement = document.getElementById('email-image');
-        imgElement.src = gameScenarios[currentQuestion].image;
-        
-        // Atualiza progresso
-        const progress = ((currentQuestion + 1) / totalQuestions) * 100;
-        document.getElementById('progress-bar').style.width = progress + "%";
-        document.getElementById('question-number').innerText = `Pergunta ${currentQuestion + 1} de ${totalQuestions}`;
-        document.getElementById('feedback').innerText = "";
-    } else {
-        showFinalResult();
-    }
-}
-
-function checkAnswer(userSaidReal) {
-    const correct = (userSaidReal === gameScenarios[currentQuestion].isReal);
-    if (correct) score++;
-
-    const feedback = document.getElementById('feedback');
-    feedback.innerText = correct ? "✅ " + gameScenarios[currentQuestion].explanation : "❌ " + gameScenarios[currentQuestion].explanation;
-    
-    // Espera 2 segundos e passa à próxima
-    setTimeout(() => {
-        currentQuestion++;
-        loadQuestion();
-    }, 2000);
-}
-
-function showFinalResult() {
-    let msg = "";
-    if (score <= 2) msg = "Precisas de mais treino! 🛡️";
-    else if (score <= 4) msg = "Estás no bom caminho! ⚠️";
-    else msg = "Mestre da Cibersegurança! 🏆";
-
-    document.querySelector('.game-container').innerHTML = `
-        <div style="text-align:center; padding: 40px;">
-            <h3>Fim do Jogo!</h3>
-            <p style="font-size: 2rem;">${score} / ${totalQuestions}</p>
-            <p>${msg}</p>
-            <button onclick="location.reload()" class="tab-btn active">Jogar Novamente</button>
+    const gameMarkup = `
+        <div class="email-zoom-container">
+            <img id="email-image" src="" alt="Exame de e-mail">
         </div>
-    `;
-}
 
-window.onload = initGame;
+        <div class="game-controls">
+            <button class="btn btn-real" onclick="checkAnswer(true)">Parece Seguro</button>
+            <button class="btn btn-phishing" onclick="checkAnswer(false)">É Phishing!</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+    `;
+
+    function getTotalQuestions() {
+        return gameState.gameScenarios.length;
+    }
+
+    // Tabs: mostra apenas a secção pedida e marca apenas o botão clicado.
+    function openTab(evt, tabName) {
+        document.querySelectorAll('.tab-content').forEach((section) => {
+            section.classList.remove('active');
+        });
+
+        document.querySelectorAll('.tab-btn').forEach((button) => {
+            button.classList.remove('active');
+        });
+
+        const selectedSection = document.getElementById(tabName);
+        if (selectedSection) {
+            selectedSection.classList.add('active');
+        }
+
+        if (evt?.currentTarget) {
+            evt.currentTarget.classList.add('active');
+        }
+    }
+
+    async function initGame() {
+        try {
+            const response = await fetch('emails.json');
+            gameState.scenarios = await response.json();
+            restartGame();
+        } catch (e) {
+            console.error('Erro ao carregar dados:', e);
+        }
+    }
+
+    function restartGame() {
+        gameState.currentQuestion = 0;
+        gameState.score = 0;
+        gameState.answerLocked = false;
+        gameState.gameScenarios = [...gameState.scenarios]
+            .sort(() => 0.5 - Math.random())
+            .slice(0, maxQuestions);
+
+        // Recria apenas o conteúdo interno do jogo; header, tabs e layout principal ficam intactos.
+        document.getElementById('game-box').innerHTML = gameMarkup;
+        setupMagnifier();
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const totalQuestions = getTotalQuestions();
+
+        if (totalQuestions === 0) {
+            document.getElementById('game-box').innerHTML = '<p>Não existem emails disponíveis para o jogo.</p>';
+            return;
+        }
+
+        if (gameState.currentQuestion >= totalQuestions) {
+            showFinalResult();
+            return;
+        }
+
+        gameState.answerLocked = false;
+        const currentScenario = gameState.gameScenarios[gameState.currentQuestion];
+        const img = document.getElementById('email-image');
+
+        img.src = currentScenario.image;
+        document.getElementById('progress-bar').style.width = `${((gameState.currentQuestion + 1) / totalQuestions) * 100}%`;
+        document.getElementById('question-number').innerText = `ANALISANDO ALVO ${gameState.currentQuestion + 1} DE ${totalQuestions}`;
+        const feedback = document.getElementById('feedback');
+        feedback.className = 'feedback';
+        feedback.innerText = '';
+    }
+
+    function checkAnswer(userSaidReal) {
+        if (gameState.answerLocked) return;
+        gameState.answerLocked = true;
+
+        const currentScenario = gameState.gameScenarios[gameState.currentQuestion];
+        const correct = userSaidReal === currentScenario.isReal;
+        const feedback = document.getElementById('feedback');
+        const box = document.getElementById('game-box');
+
+        if (correct) {
+            gameState.score++;
+            feedback.className = 'feedback feedback-success';
+            feedback.innerText = `> ACESSO AUTORIZADO: ${currentScenario.explanation}`;
+        } else {
+            box.classList.add('shake');
+            setTimeout(() => box.classList.remove('shake'), 500);
+            feedback.className = 'feedback feedback-danger';
+            feedback.innerText = `> BRECHA DETETADA: ${currentScenario.explanation}`;
+        }
+
+        setTimeout(() => {
+            gameState.currentQuestion++;
+            loadQuestion();
+        }, 3500);
+    }
+
+    function setupMagnifier() {
+        const container = document.querySelector('.email-zoom-container');
+        const img = document.getElementById('email-image');
+        if (!container || !img) return;
+
+        // Cria uma única lupa por ronda e calcula a ampliação com base no tamanho visível da imagem.
+        const magnifier = document.createElement('div');
+        const zoom = 2.5;
+        magnifier.className = 'magnifier';
+        container.appendChild(magnifier);
+
+        const moveMagnifier = (e) => {
+            const rect = container.getBoundingClientRect();
+            const pointer = e.touches?.[0] ?? e;
+            const x = pointer.clientX - rect.left;
+            const y = pointer.clientY - rect.top;
+
+            if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+                magnifier.style.display = 'none';
+                return;
+            }
+
+            magnifier.style.display = 'block';
+            magnifier.style.left = `${x}px`;
+            magnifier.style.top = `${y}px`;
+            magnifier.style.backgroundImage = `url("${img.currentSrc || img.src}")`;
+            magnifier.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
+            magnifier.style.backgroundPosition = `-${(x * zoom) - (magnifier.offsetWidth / 2)}px -${(y * zoom) - (magnifier.offsetHeight / 2)}px`;
+        };
+
+        container.addEventListener('mousemove', moveMagnifier);
+        container.addEventListener('touchmove', moveMagnifier, { passive: true });
+        container.addEventListener('mouseleave', () => {
+            magnifier.style.display = 'none';
+        });
+        container.addEventListener('touchend', () => {
+            magnifier.style.display = 'none';
+        });
+    }
+
+    function showFinalResult() {
+        const totalQuestions = getTotalQuestions();
+        const rank = gameState.score >= Math.ceil(totalQuestions * 0.8) ? 'AGENT ELITE' : 'RECRUTA';
+
+        // Atualiza só o interior da caixa do jogo, sem substituir body, main, tabs ou sections.
+        document.getElementById('game-box').innerHTML = `
+            <div class="final-result">
+                <h2>SCAN COMPLETO</h2>
+                <p class="final-score">${gameState.score} / ${totalQuestions}</p>
+                <p>RANK: ${rank}</p>
+                <button onclick="restartGame()" class="btn btn-real">REINICIAR SISTEMA</button>
+            </div>
+        `;
+    }
+
+    // Mantém compatibilidade com os onclick existentes no HTML sem poluir o resto do código.
+    window.openTab = openTab;
+    window.checkAnswer = checkAnswer;
+    window.restartGame = restartGame;
+    window.addEventListener('load', initGame);
+})();

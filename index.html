@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -6,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub de Cibersegurança - Estágio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header>
         <h1>Ciber<span>Security</span> Hub</h1>
         <p>Plano de Formação e Infraestrutura</p>
     </header>
 
-    <nav class="tabs-nav">
+    <nav class="tabs-nav" aria-label="Navegação principal">
         <button class="tab-btn active" onclick="openTab(event, 'formacao')">Formação & Jogo</button>
         <button class="tab-btn" onclick="openTab(event, 'infra')">Infraestrutura</button>
         <button class="tab-btn" onclick="openTab(event, 'conduta')">Manual de Conduta</button>
@@ -30,29 +28,47 @@
                 </div>
                 <p id="question-number">Pergunta 1 de 5</p>
             </div>
-            
-            <div class="game-container">
+
+            <!-- O id game-box limita atualizações do jogo a este bloco, sem tocar na navegação por tabs. -->
+            <div id="game-box" class="game-container">
                 <div class="email-zoom-container">
                     <img id="email-image" src="" alt="Exame de e-mail">
                 </div>
-                
+
                 <div class="game-controls">
-                    <button class="btn-real" onclick="checkAnswer(true)">Parece Seguro</button>
-                    <button class="btn-phishing" onclick="checkAnswer(false)">É Phishing!</button>
+                    <button class="btn btn-real" onclick="checkAnswer(true)">Parece Seguro</button>
+                    <button class="btn btn-phishing" onclick="checkAnswer(false)">É Phishing!</button>
                 </div>
                 <div id="feedback" class="feedback"></div>
             </div>
         </section>
 
         <section id="infra" class="tab-content">
-            <h2>Levantamento de Infraestrutura</h2>
-            <p>Conteúdo a ser desenvolvido pelo Colega A.</p>
-            </section>
+            <div class="content-panel">
+                <h2>Levantamento de Infraestrutura</h2>
+                <p>Conteúdo a ser desenvolvido pelo Colega A.</p>
+            </div>
+        </section>
 
         <section id="conduta" class="tab-content">
-            <h2>Manual de Conduta</h2>
-            <p>Conteúdo a ser desenvolvido pelo Colega B.</p>
-            </section>
+            <div class="content-panel conduct-panel">
+                <h2>Manual de Conduta</h2>
+                <div class="conduct-grid">
+                    <div class="info-card">
+                        <span class="card-kicker">01</span>
+                        <h3>Phishing</h3>
+                        <p>Não clique em links suspeitos.</p>
+                        <p>Reporte imediatamente ao TI.</p>
+                    </div>
+                    <div class="info-card danger-card">
+                        <span class="card-kicker">02</span>
+                        <h3>Ransomware</h3>
+                        <p>Desligue o cabo de rede/Wi-Fi.</p>
+                        <p>Não desligue o PC, apenas o isole.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
