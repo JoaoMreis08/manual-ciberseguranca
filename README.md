@@ -6,23 +6,12 @@
 
 ##  Sobre o Projeto
 
-O **Cybersecurity Hub** é uma plataforma web criada para:
+O **Cybersecurity Hub** é uma website criado para:
 
 - **Sensibilizar** colaboradores sobre boas práticas de cibersegurança
 - **Mapear** a infraestrutura tecnológica da empresa (parque informático, servidores, aplicações)
 - **Educar** através de um simulador interativo de phishing
 - **Prevenir** ataques cibernéticos com um manual de conduta digital
-
----
-
-##  Funcionalidades
-
-| Secção | Descrição |
-| --- | --- |
-|  **Início** | Página de boas-vindas com acesso rápido às principais áreas |
-|  **Infraestrutura** | Levantamento completo do parque tecnológico com avisos clicáveis sobre vulnerabilidades |
-|  **Manual de Conduta** | Guia prático com boas práticas e procedimentos de emergência |
-|  **Simulador de Phishing** | Jogo interativo para testar a capacidade de detetar e-mails fraudulentos |
 
 ---
 
