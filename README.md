@@ -36,17 +36,6 @@ O **Cybersecurity Hub** é uma plataforma web criada para:
 
 ---
 
-##  Estrutura do Projeto
-cybersecurity-hub/
-│
-├── index.html # Página principal
-├── style.css # Estilos e temas (dark/glass)
-├── script.js # Lógica da plataforma (tabs, jogo, modal)
-└── README.md # Documentação do projeto
-
-
----
-
 ##  Detalhes da Infraestrutura (mapeada)
 
 | Categoria | Especificação |
