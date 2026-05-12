@@ -44,7 +44,7 @@ O **Cybersecurity Hub** é uma website criado para:
 
 ##  Avisos de Segurança (interativos)
 
-Ao clicar em certos elementos da secção **Infraestrutura**, são apresentados avisos sobre possivéis vetores de ataque.
+Ao clicar em certos elementos da secção **Infraestrutura**, são apresentados avisos sobre possíveis vetores de ataque.
 
 ---
 
