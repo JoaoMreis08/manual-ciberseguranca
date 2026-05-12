@@ -14,13 +14,211 @@
     </header>
 
     <nav class="tabs-nav" aria-label="Navegação principal">
-        <button class="tab-btn active" onclick="openTab(event, 'formacao')">Formação & Jogo</button>
-        <button class="tab-btn" onclick="openTab(event, 'infra')">Infraestrutura</button>
-        <button class="tab-btn" onclick="openTab(event, 'conduta')">Manual de Conduta</button>
+        <button class="tab-btn active" data-tab="home" onclick="openTab(event, 'home')">Início</button>
+        <button class="tab-btn" data-tab="infra" onclick="openTab(event, 'infra')">Infraestrutura</button>
+        <button class="tab-btn" data-tab="conduta" onclick="openTab(event, 'conduta')">Manual de Conduta</button>
+        <button class="tab-btn" data-tab="phishing" onclick="openTab(event, 'phishing')">Simulador de Phishing</button>
     </nav>
 
     <main class="container">
-        <section id="formacao" class="tab-content active">
+        <section id="home" class="tab-content active">
+            <div class="home-hero">
+                <div class="home-panel">
+                    <span class="hero-tag">Hub de Segurança Digital</span>
+                    <h2>Bem-vindo ao Hub de Segurança Digital</h2>
+                    <p>Este espaço foi criado para sensibilizar e educar sobre as ameaças do mundo cibernético, ajudando a prevenir ataques e a proteger a tua identidade. Explora os nossos recursos e testa as tuas capacidades no final.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-real" onclick="openTab(event, 'infra')">Explorar Infraestrutura</button>
+                        <button class="btn btn-phishing" onclick="openTab(event, 'conduta')">Manual de Conduta</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="infra" class="tab-content">
+
+    <div class="content-panel" style="max-width: 100%; margin-bottom: 24px;">
+        <h2>Infraestrutura Tecnológica</h2>
+        <p>Parque informático, servidores, aplicações e componentes web.</p>
+        <p style="font-size: 0.85rem; color: var(--subtle); margin-top: 8px;">🔍 Clique nos elementos com <span style="color: var(--danger);">nome a vermelho</span> para ver avisos de segurança</p>
+    </div>
+
+    <!-- Parque Informático -->
+    <div style="margin-bottom: 24px;">
+        <div class="content-panel" style="max-width: 100%; margin-bottom: 16px;">
+            <h3 style="margin: 0;">📋 Parque Informático</h3>
+        </div>
+        <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div class="info-card">
+                <div class="card-kicker">💻</div>
+                <h3>Torres</h3>
+                <p><strong>6 unidades</strong> · 2-3 anos</p>
+            </div>
+            <div class="info-card clickable" onclick="mostrarAvisoPortateis()">
+                <div class="card-kicker">📱</div>
+                <h3>Portáteis <span style="color: var(--danger); font-size: 0.8rem;">⚠️</span></h3>
+                <p><strong>41 unidades</strong> · 5 anos</p>
+                <p style="margin-top: 8px; font-size: 0.7rem; color: var(--subtle);">🔍 Clique para ver aviso</p>
+            </div>
+            <div class="info-card">
+                <div class="card-kicker">🖥️</div>
+                <h3>Monitores</h3>
+                <p><strong>40-60 unidades</strong></p>
+            </div>
+            <div class="info-card">
+                <div class="card-kicker">📡</div>
+                <h3>Access Points (Wi-Fi)</h3>
+                <p><strong>14-15 unidades</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Servidor e Backup -->
+    <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 24px;">
+        <div class="info-card">
+            <div class="card-kicker">☁️</div>
+            <h3>Servidor</h3>
+            <p><strong>Cloud</strong> – Hospedado pela Ciberconceito</p>
+            <p style="margin-top: 8px;"><strong>Acesso IT:</strong> Login via browser</p>
+            <p><strong>Firewall:</strong> Fornecida pela Ciberconceito</p>
+        </div>
+        <div class="info-card">
+            <div class="card-kicker">💾</div>
+            <h3>Backup</h3>
+            <p><strong>Cloud</strong> + <strong>Disco rígido</strong></p>
+            <p>Frequência: <strong>Diária</strong> (ambos)</p>
+        </div>
+    </div>
+
+    <!-- Sistemas Operativos (clicável) -->
+    <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 24px;">
+        <div class="info-card clickable" onclick="mostrarAvisoSO()">
+            <div class="card-kicker">🖥️</div>
+            <h3>Sistemas Operativos <span style="color: var(--danger); font-size: 0.8rem;">⚠️</span></h3>
+            <div style="display: flex; gap: 10px; margin-top: 12px;">
+                <span style="background: var(--accent-soft); padding: 4px 12px; border-radius: 40px;">macOS</span>
+                <span style="background: var(--accent-soft); padding: 4px 12px; border-radius: 40px;">Windows</span>
+            </div>
+            <p style="margin-top: 12px; font-size: 0.7rem; color: var(--subtle);">🔍 Clique para ver aviso</p>
+        </div>
+
+        <!-- Aplicações com elementos clicáveis -->
+        <div class="info-card">
+            <div class="card-kicker">📱</div>
+            <h3>Aplicações e Ferramentas</h3>
+            <p><strong>Comunicação interna:</strong> <span class="clickable" onclick="mostrarAvisoWhatsApp()" style="color: var(--danger); cursor: pointer;">WhatsApp</span> · Microsoft Teams</p>
+            <p><strong>Comunicação clientes:</strong> Email · <span class="clickable" onclick="mostrarAvisoWhatsApp()" style="color: var(--danger); cursor: pointer;">WhatsApp</span></p>
+            <p><strong>Armazenamento cloud:</strong> <span class="clickable" onclick="mostrarAvisoClouds()" style="color: var(--danger); cursor: pointer;">Dropbox</span> · <span class="clickable" onclick="mostrarAvisoClouds()" style="color: var(--danger); cursor: pointer;">Google Drive</span> · <span class="clickable" onclick="mostrarAvisoClouds()" style="color: var(--danger); cursor: pointer;">Basecamp</span></p>
+        </div>
+    </div>
+
+    <!-- Infraestrutura Web -->
+    <div class="content-panel" style="max-width: 100%; margin-bottom: 16px;">
+        <h3 style="margin: 0;">🌐 Infraestrutura Web</h3>
+    </div>
+    <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
+        <div class="info-card">
+            <div class="card-kicker">⚙️</div>
+            <h3>Configuração</h3>
+            <p><strong>Painel:</strong> cPanel</p>
+            <p><strong>Web server:</strong> Nginx</p>
+            <p><strong>PHP:</strong> <span class="clickable" onclick="mostrarAvisoPHP()" style="color: var(--danger); cursor: pointer;">Versão 7.2 ⚠️</span></p>
+        </div>
+        <div class="info-card">
+            <div class="card-kicker">🗄️</div>
+            <h3>Base de Dados</h3>
+            <p><strong>Uma base por domínio</strong> (no servidor)</p>
+            <p style="margin-top: 8px; color: var(--success);">✅ Modelo seguro – isolamento entre domínios</p>
+        </div>
+    </div>
+
+    <!-- Data atualização -->
+    <div style="text-align: center; margin-top: 32px; color: var(--subtle); font-size: 0.75rem;">
+    </div>
+</section>
+
+       <section id="conduta" class="tab-content">
+            <div class="manual-container" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+                
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="color: var(--primary); font-size: 2rem;">
+                        <i class="fas fa-shield-halved"></i> Guia de Sobrevivência Digital
+                    </h2>
+                    <p style="color: #94a3b8;">Manual prático para quem não é da área de informática.</p>
+                </div>
+
+                <h3 style="border-bottom: 2px solid #334155; padding-bottom: 10px; margin-bottom: 20px;">
+                    <i class="fas fa-fire-extinguisher"></i> Em caso de Emergência
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                    
+                    <div style="background: var(--card); padding: 25px; border-radius: 15px; border-left: 5px solid #3b82f6;">
+                        <h3 style="color: #3b82f6;"><i class="fas fa-fish"></i> Phishing </h3>
+                        <p style="font-size: 0.95rem; line-height: 1.4;">É quando um criminoso se faz passar por uma entidade confiável (banco, colega, chefe) para roubar as tuas passwords.</p>
+                        <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin: 15px 0;">
+                            <strong>Sinais:</strong> Erros de português, tom de ameaça ("A sua conta será bloqueada!") ou links estranhos.
+                        </div>
+                        <ul style="padding-left: 20px; font-size: 0.9rem;">
+                            <li><strong>Pare e Pense:</strong> Nunca cliques em botões de "Recuperar Senha" vindos do nada.</li>
+                            <li><strong>Reporte:</strong> Avise o IT se o e-mail parecer suspeito.</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--card); padding: 25px; border-radius: 15px; border-left: 5px solid #ef4444;">
+                        <h3 style="color: #ef4444;"><i class="fas fa-biohazard"></i> Ransomware</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.4;">Um vírus que bloqueia todos os teus ficheiros e pede um resgate em dinheiro.</p>
+                        <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin: 15px 0;">
+                            <strong>Sinais:</strong> Ficheiros que não abrem, nomes alterados ou uma imagem de aviso no fundo do ecrã.
+                        </div>
+                        <ul style="padding-left: 20px; font-size: 0.9rem;">
+                            <li><strong>Corte a Ligação:</strong> Tira o cabo de rede ou desliga o Wi-Fi imediatamente para o vírus não se espalhar.</li>
+                            <li><strong>Não Reinicies:</strong> Deixa o PC ligado para o IT tentar salvar os dados.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 style="border-bottom: 2px solid #334155; padding-bottom: 10px; margin-bottom: 20px;">
+                    <i class="fas fa-user-check"></i> Boas Práticas Diárias
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                    
+                    <div style="background: var(--card); padding: 20px; border-radius: 12px; border-right: 4px solid #10b981;">
+                        <h4 style="color: var(--primary);"><i class="fas fa-user-secret"></i> O "Engano" por Telefone</h4>
+                        <p style="font-size: 0.85rem;">Criminosos ligam e fingem ser do suporte. <strong>Regra:</strong> O IT nunca pede a tua password por telefone ou chat.</p>
+                    </div>
+
+                    <div style="background: var(--card); padding: 20px; border-radius: 12px; border-right: 4px solid #10b981;">
+                        <h4 style="color: var(--primary);"><i class="fas fa-download"></i> Programas Perigosos</h4>
+                        <p style="font-size: 0.85rem;">Instalar programas "piratas" ou grátis sem autorização pode abrir portas para espiões. Usa apenas o que está aprovado.</p>
+                    </div>
+
+                    <div style="background: var(--card); padding: 20px; border-radius: 12px; border-right: 4px solid #10b981;">
+                        <h4 style="color: var(--primary);"><i class="fas fa-desktop"></i> Teclas Mágicas: Win + L</h4>
+                        <p style="font-size: 0.85rem;">Vais tomar um café ou à casa de banho? Bloqueie o ecrã. Alguém pode mexer no teu PC enquanto não está.</p>
+                    </div>
+
+                    <div style="background: var(--card); padding: 20px; border-radius: 12px; border-right: 4px solid #10b981;">
+                        <h4 style="color: var(--primary);"><i class="fas fa-usb"></i> Pen Drives Encontradas?</h4>
+                        <p style="font-size: 0.85rem;">Encontraste uma pen em algum lugar? <strong>Não a ligues!</strong> Isso uma técnica comum para injetar vírus na rede da empresa.</p>
+                    </div>
+
+                    <div style="background: var(--card); padding: 20px; border-radius: 12px; border-right: 4px solid #10b981;">
+                        <h4 style="color: var(--primary);"><i class="fas fa-comment-slash"></i> Smishing (SMS Falso)</h4>
+                        <p style="font-size: 0.85rem;">Mensagens no telemóvel sobre encomendas ou bancos. <strong>Regra:</strong> Ignore links de SMS. Vá sempre ao site oficial pelo navegador.</p>
+                    </div>
+
+                    <div style="background: var(--card); padding: 20px; border-radius: 12px; border-right: 4px solid #10b981;">
+                        <h4 style="color: var(--primary);"><i class="fas fa-phone-volume"></i> Vishing (Chamadas)</h4>
+                        <p style="font-size: 0.85rem;">Alguém liga a pedir para instalar um programa de suporte? <strong>Desligue.</strong> O suporte técnico não liga sem aviso prévio.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="phishing" class="tab-content">
             <div class="game-header">
                 <h2>Desafio: Detetive de Phishing</h2>
                 <div class="progress-container">
@@ -29,7 +227,6 @@
                 <p id="question-number">Pergunta 1 de 5</p>
             </div>
 
-            <!-- O id game-box limita atualizações do jogo a este bloco, sem tocar na navegação por tabs. -->
             <div id="game-box" class="game-container">
                 <div class="email-zoom-container">
                     <img id="email-image" src="" alt="Exame de e-mail">
@@ -41,36 +238,19 @@
                 </div>
                 <div id="feedback" class="feedback"></div>
             </div>
-        </section>
-
-        <section id="infra" class="tab-content">
-            <div class="content-panel">
-                <h2>Levantamento de Infraestrutura</h2>
-                <p>Conteúdo a ser desenvolvido pelo Colega A.</p>
-            </div>
-        </section>
-
-        <section id="conduta" class="tab-content">
-            <div class="content-panel conduct-panel">
-                <h2>Manual de Conduta</h2>
-                <div class="conduct-grid">
-                    <div class="info-card">
-                        <span class="card-kicker">01</span>
-                        <h3>Phishing</h3>
-                        <p>Não clique em links suspeitos.</p>
-                        <p>Reporte imediatamente ao TI.</p>
-                    </div>
-                    <div class="info-card danger-card">
-                        <span class="card-kicker">02</span>
-                        <h3>Ransomware</h3>
-                        <p>Desligue o cabo de rede/Wi-Fi.</p>
-                        <p>Não desligue o PC, apenas o isole.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </section> 
     </main>
-
+    <div id="avisoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>⚠️ Aviso de Segurança</h3>
+                <button class="modal-close" onclick="fecharModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo dinâmico será inserido aqui -->
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
