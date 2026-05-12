@@ -44,11 +44,7 @@ O **Cybersecurity Hub** é uma website criado para:
 
 ##  Avisos de Segurança (interativos)
 
-Ao clicar em certos elementos da secção **Infraestrutura**, são apresentados avisos sobre:
-
-- **Portáteis com 5 anos** – risco de hardware desatualizado
-- **PHP 7.2** – versão sem suporte oficial
-- **Múltiplas clouds (Dropbox, Drive, Basecamp)** – dados dispersos
+Ao clicar em certos elementos da secção **Infraestrutura**, são apresentados avisos sobre possivéis vetores de ataque.
 
 ---
 
