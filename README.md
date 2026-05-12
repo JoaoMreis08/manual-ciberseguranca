@@ -26,7 +26,7 @@ O **Cybersecurity Hub** é uma plataforma web criada para:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **HTML5** – Estrutura da plataforma
 - **CSS3** – Estilização personalizada com design dark/glassmorphism
