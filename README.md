@@ -56,8 +56,8 @@ Ao clicar em certos elementos da secção **Infraestrutura**, são apresentados 
 
 O jogo apresenta 5 e-mails (imagens placeholder) e o utilizador deve classificar cada um como:
 
-- ✅ **Parece Seguro**
-- ❌ **É Phishing!**
+-  **Parece Seguro**
+-  **É Phishing!**
 
 Após cada resposta, é dado feedback e a barra de progresso é atualizada.
 
