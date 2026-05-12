@@ -49,7 +49,6 @@ cybersecurity-hub/
 
 ##  Detalhes da Infraestrutura (mapeada)
 
-
 | Categoria | Especificação |
 | --- | --- |
 | Torres | 6 unidades · 2-3 anos |
