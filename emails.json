@@ -2,11 +2,21 @@
     {
         "image": "assets/p1.png",
         "isReal": false,
-        "explanation": "Phishing! O remetente utiliza um domínio '.co' em vez de '.com'."
+        "explanation": "Phishing. O e-mail utiliza um tom de urgência para forçar a clicar. Além disso, mistura idiomas e utiliza links genéricos como 'Clique aqui', uma tática comum para esconder URLs maliciosos."
+    },
+    {
+        "image": "assets/p2.png",
+        "isReal": false,
+        "explanation": "Phishing claro. O endereço do remetente (amazon.service@013802mail.com) não é um domínio oficial da Amazon. O e-mail pede informações sensíveis como morada e password por telefone, algo que empresas legítimas nunca fazem."
+    },
+    {
+        "image": "assets/p3.png",
+        "isReal": false,
+        "explanation": "Tentativa de Phishing. Embora o design imite a Google, o remetente real é 'info@bewaterwebdesign.com', um domínio externo que não pertence à Google. O e-mail tenta criar pânico ao ameaçar a suspensão de serviços em 10 dias."
     },
     {
         "image": "assets/r1.png",
         "isReal": true,
-        "explanation": "E-mail Real. Confirmado pelo selo de autenticidade da Microsoft."
+        "explanation": "E-mail Legítimo. O remetente é 'no-reply@accounts.google.com', o domínio oficial de segurança da Google. O link exibido para verificação (myaccount.google.com/notifications) é o endereço oficial e seguro da plataforma."
     }
 ]

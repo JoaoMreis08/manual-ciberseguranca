@@ -14,10 +14,12 @@
             <img id="email-image" src="" alt="Exame de e-mail">
         </div>
         <div class="game-controls">
-            <button class="btn btn-real" onclick="checkAnswer(true)">Parece Seguro</button>
-            <button class="btn btn-phishing" onclick="checkAnswer(false)">É Phishing!</button>
+            <button class="btn btn-real" id="btn-real" onclick="checkAnswer(true)">Parece Seguro</button>
+            <button class="btn btn-phishing" id="btn-phishing" onclick="checkAnswer(false)">Phishing</button>
         </div>
         <div id="feedback" class="feedback"></div>
+        <div id="answer-explanation" class="answer-explanation" style="display: none;"></div>
+        <button id="next-btn" class="btn btn-primary" onclick="loadNextQuestion()" style="display: none; margin-top: 20px; width: 100%; text-align: center;">Próxima Pergunta >></button>
     `;
 
     // --- LÓGICA DAS TABS (CORRIGIDA) ---
@@ -96,13 +98,30 @@
         if (pb) pb.style.width = `${((gameState.currentQuestion + 1) / total) * 100}%`;
         
         const qn = document.getElementById('question-number');
-        if (qn) qn.innerText = `ANALISANDO ALVO ${gameState.currentQuestion + 1} DE ${total}`;
+        if (qn) qn.innerText = `ANALISANDO EMAIL ${gameState.currentQuestion + 1} DE ${total}`;
         
         const fb = document.getElementById('feedback');
         if (fb) {
             fb.className = 'feedback';
             fb.innerText = '';
         }
+
+        // Limpar explicação e botão "Próxima"
+        const explDiv = document.getElementById('answer-explanation');
+        if (explDiv) {
+            explDiv.innerHTML = '';
+            explDiv.style.display = 'none';
+        }
+        const nextBtn = document.getElementById('next-btn');
+        if (nextBtn) {
+            nextBtn.style.display = 'none';
+        }
+
+        // Reativar botões
+        const btnReal = document.getElementById('btn-real');
+        const btnPhishing = document.getElementById('btn-phishing');
+        if (btnReal) btnReal.disabled = false;
+        if (btnPhishing) btnPhishing.disabled = false;
     }
 
     function checkAnswer(userSaidReal) {
@@ -113,22 +132,42 @@
         const correct = userSaidReal === current.isReal;
         const feedback = document.getElementById('feedback');
         const box = document.getElementById('game-box');
+        const btnReal = document.getElementById('btn-real');
+        const btnPhishing = document.getElementById('btn-phishing');
+        const explDiv = document.getElementById('answer-explanation');
+        const nextBtn = document.getElementById('next-btn');
 
+        // Desativar botões
+        if (btnReal) btnReal.disabled = true;
+        if (btnPhishing) btnPhishing.disabled = true;
+
+        // Mostrar feedback com a resposta
         if (correct) {
             gameState.score++;
             feedback.className = 'feedback feedback-success';
-            feedback.innerText = `> ACESSO AUTORIZADO: ${current.explanation}`;
+            feedback.innerText = ' CERTO';
         } else {
             box.classList.add('shake');
             setTimeout(() => box.classList.remove('shake'), 500);
             feedback.className = 'feedback feedback-danger';
-            feedback.innerText = `> BRECHA DETETADA: ${current.explanation}`;
+            feedback.innerText = ' ERRADO';
         }
 
-        setTimeout(() => {
-            gameState.currentQuestion++;
-            loadQuestion();
-        }, 3500);
+        // Mostrar explicação
+        if (explDiv) {
+            explDiv.innerHTML = `<p style="margin: 16px 0; padding: 16px; background: rgba(143, 122, 255, 0.12); border-left: 4px solid var(--accent); border-radius: 8px; color: var(--muted); font-size: 0.95rem; line-height: 1.6;">${current.explanation}</p>`;
+            explDiv.style.display = 'block';
+        }
+
+        // Mostrar botão "Próxima Pergunta"
+        if (nextBtn) {
+            nextBtn.style.display = 'block';
+        }
+    }
+
+    function loadNextQuestion() {
+        gameState.currentQuestion++;
+        loadQuestion();
     }
 
     function setupMagnifier() {
@@ -166,13 +205,13 @@
 
     function showFinalResult() {
         const total = gameState.gameScenarios.length;
-        const rank = gameState.score >= Math.ceil(total * 0.8) ? 'AGENT ELITE' : 'RECRUTA';
+        const rank = gameState.score >= Math.ceil(total * 0.8) ? 'MUITO BEM' : 'BOA TENTATIVA';
         document.getElementById('game-box').innerHTML = `
             <div class="final-result" style="text-align:center; padding: 20px;">
                 <h2>SCAN COMPLETO</h2>
                 <p style="font-size: 2rem; color: var(--primary);">${gameState.score} / ${total}</p>
-                <p>RANK: ${rank}</p>
-                <button onclick="restartGame()" class="btn btn-real" style="margin-top:20px;">REINICIAR SISTEMA</button>
+                <p> ${rank}</p>
+                <button onclick="restartGame()" class="btn btn-real" style="margin-top:20px;">TENTAR DE NOVO</button>
             </div>
         `;
     }
@@ -181,6 +220,7 @@
     window.openTab = openTab;
     window.checkAnswer = checkAnswer;
     window.restartGame = restartGame;
+    window.loadNextQuestion = loadNextQuestion;
     window.addEventListener('load', initGame);
 })();
 
@@ -208,7 +248,6 @@ window.onclick = function(event) {
 // Avisos específicos por click
 function mostrarAvisoSO() {
     const mensagem = `
-        <p><span class="risk">⚠️ Fragilidade Identificada:</span></p>
         <p>A empresa utiliza <strong>macOS e Windows em simultâneo</strong>.</p>
         <p><strong>Riscos:</strong></p>
         <ul style="margin-left: 20px;">
@@ -224,7 +263,6 @@ function mostrarAvisoSO() {
 
 function mostrarAvisoWhatsApp() {
     const mensagem = `
-        <p><span class="risk">⚠️ Fragilidade Identificada:</span></p>
         <p>Uso de <strong>WhatsApp pessoal</strong> para comunicação profissional.</p>
         <p><strong>Riscos:</strong></p>
         <ul style="margin-left: 20px;">
@@ -240,7 +278,6 @@ function mostrarAvisoWhatsApp() {
 
 function mostrarAvisoPHP() {
     const mensagem = `
-        <p><span class="risk">⚠️ Fragilidade Identificada:</span></p>
         <p>Servidor a correr <strong>PHP 7.2</strong> (versão desatualizada).</p>
         <p><strong>Riscos:</strong></p>
         <ul style="margin-left: 20px;">
@@ -255,7 +292,6 @@ function mostrarAvisoPHP() {
 
 function mostrarAvisoPortateis() {
     const mensagem = `
-        <p><span class="risk">⚠️ Fragilidade Identificada:</span></p>
         <p><strong>41 portáteis com 5 anos</strong> em uso diário.</p>
         <p><strong>Riscos:</strong></p>
         <ul style="margin-left: 20px;">
@@ -271,7 +307,6 @@ function mostrarAvisoPortateis() {
 
 function mostrarAvisoClouds() {
     const mensagem = `
-        <p><span class="risk">⚠️ Fragilidade Identificada:</span></p>
         <p>Dados dispersos por <strong>3 clouds diferentes</strong> (Dropbox, Drive, Basecamp).</p>
         <p><strong>Riscos:</strong></p>
         <ul style="margin-left: 20px;">
@@ -283,3 +318,80 @@ function mostrarAvisoClouds() {
     `;
     abrirModal(mensagem);
 }
+function lockBodyScroll() {
+    document.body.style.overflow = 'hidden';
+}
+
+function unlockBodyScroll() {
+    document.body.style.overflow = 'auto';
+}
+
+function openManualImage(src, caption) {
+    const modal = document.getElementById('manualImageModal');
+    const img = document.getElementById('manualImgSlot');
+    const cap = document.getElementById('manualImgCaption');
+
+    if (!modal || !img || !cap) {
+        return;
+    }
+
+    if (src && src.trim() !== '') {
+        img.style.display = 'block';
+        img.src = src;
+    } else {
+        img.style.display = 'none';
+        img.removeAttribute('src');
+    }
+
+    cap.innerText = caption || '';
+    modal.style.display = 'flex';
+    lockBodyScroll();
+}
+
+function closeManualModal() {
+    const modal = document.getElementById('manualImageModal');
+    if (!modal) {
+        return;
+    }
+
+    modal.style.display = 'none';
+    unlockBodyScroll();
+}
+
+function openPracticePopup(title, text) {
+    const popup = document.getElementById('practicePopup');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupContent = document.getElementById('popupContent');
+
+    if (!popup || !popupTitle || !popupContent) {
+        return;
+    }
+
+    popupTitle.innerText = title;
+    popupContent.innerHTML = text;
+    popup.style.display = 'flex';
+    lockBodyScroll();
+}
+
+function closePracticePopup() {
+    const popup = document.getElementById('practicePopup');
+    if (!popup) {
+        return;
+    }
+
+    popup.style.display = 'none';
+    unlockBodyScroll();
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closePracticePopup();
+        closeManualModal();
+    }
+});
+
+// Expõe as funções para o HTML
+window.openManualImage = openManualImage;
+window.closeManualModal = closeManualModal;
+window.openPracticePopup = openPracticePopup;
+window.closePracticePopup = closePracticePopup;
