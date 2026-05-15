@@ -28,7 +28,7 @@
                     <h2>Bem-vindo ao Cyber Security Hub</h2>
                     <p>Este espaço foi criado para sensibilizar e educar sobre as ameaças do mundo cibernético, ajudando a prevenir ataques e a proteger a tua identidade. Explora os nossos recursos e testa as tuas capacidades no final.</p>
                     <div class="hero-actions">
-                        <button class="btn btn-real" onclick="openTab(event, 'infra')">Explorar Infraestrutura</button>
+                        <button class="btn btn-real" onclick="openTab(event, 'infra')">Infraestrutura</button>
                         <button class="btn btn-phishing" onclick="openTab(event, 'conduta')">Manual de Conduta</button>
                     </div>
                 </div>
@@ -39,14 +39,14 @@
 
     <div class="content-panel" style="max-width: 100%; margin-bottom: 24px;">
         <h2>Infraestrutura Tecnológica</h2>
-        <p>Parque informático, servidores, aplicações e componentes web.</p>
+        <p>Ecossistema de Hardware, servidores, aplicações e componentes web.</p>
         <p style="font-size: 0.85rem; color: var(--subtle); margin-top: 8px;">🔍 Clica nos elementos com <span style="color: var(--danger);">nome a vermelho</span> para ver avisos de segurança</p>
     </div>
 
     <!-- Parque Informático -->
     <div style="margin-bottom: 24px;">
         <div class="content-panel" style="max-width: 100%; margin-bottom: 16px;">
-            <h3 style="margin: 0;">📋 Parque Informático</h3>
+            <h3 style="margin: 0;"> Ecossistema de Hardware</h3>
         </div>
         <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
             <div class="info-card">
@@ -86,7 +86,7 @@
             <div class="card-kicker">💾</div>
             <h3>Backup</h3>
             <p><strong>Cloud</strong> + <strong>Disco rígido</strong></p>
-            <p>Frequência: <strong>Diária</strong> (ambos)</p>
+            <p>Frequência: <strong>Diária</strong> (Apenas cloud)</p>
         </div>
     </div>
 
@@ -114,7 +114,7 @@
 
     <!-- Infraestrutura Web -->
     <div class="content-panel" style="max-width: 100%; margin-bottom: 16px;">
-        <h3 style="margin: 0;">🌐 Infraestrutura Web</h3>
+        <h3 style="margin: 0;"> Infraestrutura Web</h3>
     </div>
     <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
         <div class="info-card">
@@ -182,7 +182,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
                 
                 <div class="protocol-card" style="background: #1e1e24; padding: 20px; border-radius: 12px; border-bottom: 4px solid #6d5dfc; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px;" 
-                    onclick="openPracticePopup('Bloqueio de Ecrã', 'Sempre que se ausentar da sua secretária, utilize o atalho <b>Win + L</b>. Isto garante que ninguém possa ver ou mexer nos seus dados enquanto está fora.')">
+                    onclick="openPracticePopup('Bloqueio de Ecrã', 'Sempre que se ausentar da sua secretária, utilize o atalho <b>Win + L</b>. Isto garante que ninguém possa ver ou mexer nos seus dados enquanto está fora.','Use Win+L; configure bloqueio automático para ≤5 minutos; proteja o seu PIN e não partilhe credenciais.')">
                     <h4 style="color: #f8fafc; font-size: 1.2rem; font-weight: 700; margin: 0;">Bloqueio (Win+L)</h4>
                     <div style="background: rgba(109, 93, 252, 0.1); padding: 10px; border-radius: 10px; width: fit-content;">
                         <i class="fas fa-desktop" style="color: #6d5dfc; font-size: 1.2rem;"></i>
@@ -191,7 +191,7 @@
                 </div>
 
                 <div class="protocol-card" style="background: #1e1e24; padding: 20px; border-radius: 12px; border-bottom: 4px solid #6d5dfc; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px;" 
-                    onclick="openPracticePopup('Dispositivos USB', 'Nunca ligue pen drives ou cabos encontrados na rua. Dispositivos desconhecidos podem conter malware que infeta o PC instantaneamente.')">
+                    onclick="openPracticePopup('Dispositivos USB', 'Nunca ligue pen drives ou cabos encontrados na rua. Dispositivos desconhecidos podem conter malware que infeta o PC instantaneamente.','Nunca ligue dispositivos USB desconhecidos; entregue-os ao TI para análise e use scanners antes de abrir ficheiros.')">
                     <h4 style="color: #f8fafc; font-size: 1.2rem; font-weight: 700; margin: 0;">Dispositivos USB</h4>
                     <div style="background: rgba(109, 93, 252, 0.1); padding: 10px; border-radius: 10px; width: fit-content;">
                         <i class="fas fa-usb" style="color: #6d5dfc; font-size: 1.2rem;"></i>
@@ -200,7 +200,7 @@
                 </div>
 
                 <div class="protocol-card" style="background: #1e1e24; padding: 20px; border-radius: 12px; border-bottom: 4px solid #6d5dfc; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px;" 
-                    onclick="openPracticePopup('Shadow IT', 'Evite conversores de PDF online não aprovados. Ao fazer upload de documentos da empresa, perde o controlo sobre a privacidade desses dados.')">
+                    onclick="openPracticePopup('Shadow IT', 'Evite conversores de PDF online não aprovados. Ao fazer upload de documentos da empresa, perde o controlo sobre a privacidade desses dados.','Não use ferramentas não aprovadas; peça ao TI soluções autorizadas e evite expor dados sensíveis fora das plataformas corporativas.')">
                     <h4 style="color: #f8fafc; font-size: 1.2rem; font-weight: 700; margin: 0;">Shadow IT</h4>
                     <div style="background: rgba(109, 93, 252, 0.1); padding: 10px; border-radius: 10px; width: fit-content;">
                         <i class="fas fa-cloud-upload-alt" style="color: #6d5dfc; font-size: 1.2rem;"></i>
@@ -223,7 +223,7 @@
 
                     <div style="display: flex; align-items: flex-start; background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 8px; text-align: left;">
                         <span style="margin-right: 10px;">✅</span>
-                        <p style="color: #10b981; font-size: 0.85rem; margin: 0;"><b>Recomendação:</b> Padroneze o uso de sistemas e reporte atividades suspeitas imediatamente.</p>
+                        <p id="popupRecommendation" style="color: #10b981; font-size: 0.85rem; margin: 0;"><b>Recomendação:</b> Padroneze o uso de sistemas e reporte atividades suspeitas imediatamente.</p>
                     </div>
                 </div>
             </div>

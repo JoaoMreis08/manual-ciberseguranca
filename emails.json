@@ -18,5 +18,10 @@
         "image": "assets/r1.png",
         "isReal": true,
         "explanation": "E-mail Legítimo. O remetente é 'no-reply@accounts.google.com', o domínio oficial de segurança da Google. O link exibido para verificação (myaccount.google.com/notifications) é o endereço oficial e seguro da plataforma."
+    },
+    {
+    "image": "assets/p4.png",
+    "isReal": false,
+    "explanation": "Phishing. O sinal mais óbvio é o endereço do remetente (ehjwqmh@lixhbdde.nkt.zarnelixa.org), que é uma sequência aleatória de caracteres e não pertence a nenhum serviço de cloud conhecido (como Google, iCloud ou Dropbox). Além disso, utiliza pressão psicológica ao alertar para uma 'Falha de Pagamento' para forçar o utilizador a clicar rapidamente."
     }
 ]

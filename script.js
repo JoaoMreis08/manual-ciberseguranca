@@ -22,7 +22,7 @@
         <button id="next-btn" class="btn btn-primary" onclick="loadNextQuestion()" style="display: none; margin-top: 20px; width: 100%; text-align: center;">Próxima Pergunta >></button>
     `;
 
-    // --- LÓGICA DAS TABS (CORRIGIDA) ---
+    // --- LÓGICA DAS TABS ---
     function openTab(evt, tabName) {
         // 1. Esconder todas as secções e remover a classe active
         document.querySelectorAll('.tab-content').forEach((section) => {
@@ -358,10 +358,11 @@ function closeManualModal() {
     unlockBodyScroll();
 }
 
-function openPracticePopup(title, text) {
+function openPracticePopup(title, text, recommendation) {
     const popup = document.getElementById('practicePopup');
     const popupTitle = document.getElementById('popupTitle');
     const popupContent = document.getElementById('popupContent');
+    const popupRecommendation = document.getElementById('popupRecommendation');
 
     if (!popup || !popupTitle || !popupContent) {
         return;
@@ -369,6 +370,10 @@ function openPracticePopup(title, text) {
 
     popupTitle.innerText = title;
     popupContent.innerHTML = text;
+    if (popupRecommendation) {
+        const rec = recommendation || 'Padroneze o uso de sistemas e reporte atividades suspeitas imediatamente.';
+        popupRecommendation.innerHTML = `<b>Recomendação:</b> ${rec}`;
+    }
     popup.style.display = 'flex';
     lockBodyScroll();
 }
