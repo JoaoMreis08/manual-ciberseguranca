@@ -3,273 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub de Cibersegurança - Estágio</title>
+    <title>Boca do Lobo | Cybersecurity Awareness</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Ciber<span>Security</span> Hub</h1>
-        <p>Plano de Formação e Infraestrutura</p>
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="Boca do Lobo Cybersecurity Awareness">
+            <img class="brand-logo" src="assets/boca-do-lobo.png" alt="Boca do Lobo">
+            <span>
+                <strong>Boca do Lobo</strong>
+                <small>Cybersecurity Awareness</small>
+            </span>
+        </a>
+        <nav class="tabs-nav" aria-label="Navegacao principal">
+            <button class="tab-btn active" type="button" data-tab="home">Início</button>
+            <button class="tab-btn" type="button" data-tab="threats">Ameaças Atuais</button>
+            <button class="tab-btn" type="button" data-tab="conduta">Manual</button>
+            <button class="tab-btn" type="button" data-tab="incident-report">Reportar</button>
+            <button class="tab-btn" type="button" data-tab="passwords">Passwords & MFA</button>
+            <button class="tab-btn" type="button" data-tab="infra">Infraestrutura</button>
+            <button class="tab-btn" type="button" data-tab="phishing">Simulador</button>
+        </nav>
     </header>
 
-    <nav class="tabs-nav" aria-label="Navegação principal">
-        <button class="tab-btn active" data-tab="home" onclick="openTab(event, 'home')">Início</button>
-        <button class="tab-btn" data-tab="infra" onclick="openTab(event, 'infra')">Infraestrutura</button>
-        <button class="tab-btn" data-tab="conduta" onclick="openTab(event, 'conduta')">Manual de Segurança</button>
-        <button class="tab-btn" data-tab="phishing" onclick="openTab(event, 'phishing')">Simulador de Phishing</button>
-    </nav>
+    <main>
+        <section id="home" class="tab-content active" tabindex="-1">
+            <div class="hero-shell">
+                <div class="hero-copy">
+                    <p class="eyebrow">Plataforma interna de sensibilização</p>
+                    <h1>Decisões seguras antes do clique.</h1>
+                    <p class="hero-subtitle">Formação prática para colaboradores reconhecerem ameaças, reduzirem erro humano e responderem corretamente a incidentes de cibersegurança.</p>
+                </div>
 
-    <main class="container">
-        <section id="home" class="tab-content active">
-            <div class="home-hero">
-                <div class="home-panel">
-                    <span class="hero-tag">Hub de Segurança Digital</span>
-                    <h2>Bem-vindo ao Cyber Security Hub</h2>
-                    <p>Este espaço foi criado para sensibilizar e educar sobre as ameaças do mundo cibernético, ajudando a prevenir ataques e a proteger a tua identidade. Explora os nossos recursos e testa as tuas capacidades no final.</p>
-                    <div class="hero-actions">
-                        <button class="btn btn-real" onclick="openTab(event, 'infra')">Infraestrutura</button>
-                        <button class="btn btn-phishing" onclick="openTab(event, 'conduta')">Manual de Conduta</button>
+                <aside class="hero-intel" aria-label="Indicadores de risco">
+                    <div class="metric-card metric-card-featured">
+                        <span class="metric-value">60%</span>
+                        <p>das violações de dados continuam a envolver uma componente humana.</p>
+                        <small>Verizon DBIR 2025</small>
                     </div>
+                    <div class="metric-grid">
+                        <div class="metric-card metric-card-compact">
+                            <span class="metric-value">30%</span>
+                            <p>dos scams envolveram terceiros ou fornecedores.</p>
+                            <small>Verizon DBIR 2025</small>
+                        </div>
+                        <div class="metric-card metric-card-compact">
+                            <span class="metric-value">$4.44M</span>
+                            <p>foi o custo médio global de uma violação de dados.</p>
+                            <small>IBM 2025</small>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="threats" class="tab-content page-section" tabindex="-1">
+            <div class="section-heading">
+                <p class="eyebrow">Inteligência comportamental</p>
+                <h2>Ameaças Atuais</h2>
+                <p>Ameaças modernas explicadas de forma simples, com foco no que cada colaborador pode fazer para prevenir o risco.</p>
+            </div>
+            <div id="threats-grid" class="card-grid threats-grid"></div>
+        </section>
+
+        <section id="conduta" class="tab-content page-section" tabindex="-1">
+            <div class="section-heading">
+                <p class="eyebrow">Manual de conduta</p>
+                <h2>Comportamentos que protegem a empresa</h2>
+                <p>Regras rápidas, práticas e memoráveis para aplicar no trabalho diário, em email, cloud, dispositivos e acessos.</p>
+            </div>
+
+            <div class="manual-layout">
+                <article class="policy-column good">
+                    <div class="column-title">
+                        <span class="status-icon" aria-hidden="true">✓</span>
+                        <h3>O que fazer sempre</h3>
+                    </div>
+                    <ul id="do-list" class="action-list"></ul>
+                </article>
+
+                <article class="policy-column bad">
+                    <div class="column-title">
+                        <span class="status-icon" aria-hidden="true">!</span>
+                        <h3>O que nunca fazer</h3>
+                    </div>
+                    <ul id="dont-list" class="action-list"></ul>
+                </article>
+            </div>
+
+            <div class="training-strip">
+                <button class="training-card" type="button" data-manual-image="assets/phishing.png" data-caption="Exemplo de email fraudulento: remetente, urgencia e link devem ser verificados.">
+                    <span>PH</span>
+                    <strong>Ver exemplo de phishing</strong>
+                    <small>Treinar sinais de alerta em email.</small>
+                </button>
+                <button class="training-card" type="button" data-manual-image="assets/ransomware.png" data-caption="Exemplo de ecra de bloqueio por ransomware: nao reiniciar nem apagar evidencias.">
+                    <span>RW</span>
+                    <strong>Ver exemplo de ransomware</strong>
+                    <small>Reconhecer bloqueios e extorsao digital.</small>
+                </button>
+            </div>
+        </section>
+
+        <section id="incident-report" class="tab-content page-section" tabindex="-1">
+            <div class="section-heading">
+                <p class="eyebrow">Resposta imediata</p>
+                <h2>Reportar Incidentes</h2>
+                <p>Quando há suspeita, a rapidez e a preservação de evidência são mais importantes do que tentar resolver sozinho.</p>
+            </div>
+
+            <div class="incident-layout">
+                <div class="alert-box incident-rule">
+                    <strong>Regra principal</strong>
+                    <p>Se clicou, introduziu dados, abriu um anexo suspeito ou recebeu um pedido estranho: pare, registe e reporte ao IT.</p>
+                </div>
+                <ol id="incident-steps" class="step-list"></ol>
+            </div>
+        </section>
+
+        <section id="passwords" class="tab-content page-section" tabindex="-1">
+            <div class="section-heading">
+                <p class="eyebrow">Identidade e acessos</p>
+                <h2>Passwords & MFA</h2>
+                <p>Passwords fortes e MFA reduzem risco, mas não substituem atenção a páginas falsas, notificações suspeitas e reutilização de credenciais.</p>
+            </div>
+
+            <div class="password-layout">
+                <article class="education-card">
+                    <h3>Exemplos bons vs maus</h3>
+                    <div class="comparison">
+                        <div class="example bad-example">
+                            <span>Fraca</span>
+                            <code>Empresa2026!</code>
+                            <p>Curta, previsível e fácil de adaptar.</p>
+                        </div>
+                        <div class="example good-example">
+                            <span>Forte</span>
+                            <code>vidro-luz-cadeira-rio-47</code>
+                            <p>Password longa, única e mais fácil de memorizar.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="education-card">
+                    <h3>Checklist visual</h3>
+                    <ul id="password-checklist" class="check-list"></ul>
+                </article>
+
+                <article class="education-card mfa-card">
+                    <h3>Porque MFA importa</h3>
+                    <p>O MFA cria uma segunda barreira quando uma password e roubada. Ainda assim, atacantes podem usar paginas falsas, fadiga de aprovacoes ou chamadas de suporte falsas para tentar contornar essa protecao.</p>
+                    <div class="callout">
+                        <strong>Boa pratica</strong>
+                        <p>Aprove apenas pedidos MFA que acabou de iniciar e reporte pedidos repetidos ou inesperados.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="infra" class="tab-content page-section" tabindex="-1">
+            <div class="section-heading">
+                <p class="eyebrow">Contexto interno</p>
+                <h2>Infraestrutura Tecnológica</h2>
+                <p>Mapa simplificado de ativos, aplicações e pontos de atenção para reduzir risco operacional.</p>
+            </div>
+
+            <div class="infra-block">
+                <h3>Ecossistema de Hardware</h3>
+                <div class="infra-grid infra-grid-hardware">
+                    <article class="info-card">
+                        <span class="card-icon" aria-hidden="true">🖥️</span>
+                        <h3>Torres</h3>
+                        <p><strong>6 unidades</strong> · 2-3 anos</p>
+                    </article>
+                    <article class="info-card">
+                        <span class="card-icon" aria-hidden="true">💻</span>
+                        <h3>Portáteis</h3>
+                        <p><strong>41 unidades</strong> · 5 anos</p>
+                        <button class="text-action" type="button" data-modal="laptops">Ver risco dos portáteis</button>
+                    </article>
+                    <article class="info-card">
+                        <span class="card-icon" aria-hidden="true">🖥️</span>
+                        <h3>Monitores</h3>
+                        <p><strong>40-60 unidades</strong></p>
+                    </article>
+                    <article class="info-card">
+                        <span class="card-icon" aria-hidden="true">🌐</span>
+                        <h3>Access Points</h3>
+                        <p><strong>14-15 unidades</strong> para cobertura Wi-Fi.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="infra-grid infra-grid-two">
+                <article class="info-card">
+                    <span class="card-icon" aria-hidden="true">☁️</span>
+                    <h3>Servidor</h3>
+                    <p><strong>Cloud</strong> · hospedado pela Ciberconceito.</p>
+                    <p>Acesso IT: via browser firewall:</span> fornecida pela Ciberconceito.</p>
+                </article>
+                <article class="info-card">
+                    <span class="card-icon" aria-hidden="true">🗄️</span>
+                    <h3>Backup</h3>
+                    <p><strong>Cloud</strong> + <strong>disco rígido</strong>.</p>
+                    <p>Frequência diária na cloud.</p>
+                </article>
+            </div>
+
+            <div class="infra-grid infra-grid-two">
+                <article class="info-card">
+                    <span class="card-icon" aria-hidden="true">🖥️</span>
+                    <h3>Sistemas Operativos</h3>
+                    <p>Ambiente misto com macOS e Windows.</p>
+                    <div class="tag-row" aria-label="Sistemas operativos">
+                        <span>macOS</span>
+                        <span>Windows</span>
+                    </div>
+                    <button class="text-action" type="button" data-modal="os">Ver recomendação</button>
+                </article>
+                <article class="info-card">
+                    <span class="card-icon" aria-hidden="true">📡</span>
+                    <h3>Aplicações e Ferramentas</h3>
+                    <p><strong>Comunicação interna:</strong> <span class="text-risk">WhatsApp</span> · Microsoft Teams</p>
+                    <p><strong>Clientes:</strong> Email · <span class="text-risk">WhatsApp</span></p>
+                    <p><strong>Cloud:</strong> <span class="text-risk">Dropbox</span> · <span class="text-risk">Google Drive</span> · <span class="text-risk">Basecamp</span></p>
+                    <button class="text-action" type="button" data-modal="cloud">Ver risco de dispersão</button>
+                </article>
+            </div>
+
+            <div class="infra-block">
+                <h3>Infraestrutura Web</h3>
+                <div class="infra-grid infra-grid-two">
+                    <article class="info-card">
+                        <span class="card-icon" aria-hidden="true">🔐</span>
+                        <h3>Configuração</h3>
+                        <p><strong>Painel:</strong> cPanel</p>
+                        <p><strong>Web server:</strong> Nginx</p>
+                        <p><strong>PHP:</strong> <span class="text-risk">versão 7.2</span> identificada</p>
+                        <button class="text-action" type="button" data-modal="php">Ver risco PHP</button>
+                    </article>
+                    <article class="info-card">
+                        <span class="card-icon" aria-hidden="true">🗄️</span>
+                        <h3>Base de Dados</h3>
+                        <p><strong>Uma base por domínio</strong> no servidor.</p>
+                        <p class="text-secure">Modelo seguro - isolamento entre domínios.</p>
+                        <button class="text-action" type="button" data-modal="database">Ver detalhe</button>
+                    </article>
                 </div>
             </div>
         </section>
 
-         <section id="infra" class="tab-content">
-
-    <div class="content-panel" style="max-width: 100%; margin-bottom: 24px;">
-        <h2>Infraestrutura Tecnológica</h2>
-        <p>Ecossistema de Hardware, servidores, aplicações e componentes web.</p>
-        <p style="font-size: 0.85rem; color: var(--subtle); margin-top: 8px;">🔍 Clica nos elementos com <span style="color: var(--danger);">nome a vermelho</span> para ver avisos de segurança</p>
-    </div>
-
-    <!-- Parque Informático -->
-    <div style="margin-bottom: 24px;">
-        <div class="content-panel" style="max-width: 100%; margin-bottom: 16px;">
-            <h3 style="margin: 0;"> Ecossistema de Hardware</h3>
-        </div>
-        <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
-            <div class="info-card">
-                <div class="card-kicker">💻</div>
-                <h3>Torres</h3>
-                <p><strong>6 unidades</strong> · 2-3 anos</p>
-            </div>
-            <div class="info-card clickable" onclick="mostrarAvisoPortateis()">
-                <div class="card-kicker">📱</div>
-                <h3>Portáteis <span style="color: var(--danger); font-size: 0.8rem;">⚠️</span></h3>
-                <p><strong>41 unidades</strong> · 5 anos</p>
-                <p style="margin-top: 8px; font-size: 0.7rem; color: var(--subtle);">🔍 Clica para ver aviso</p>
-            </div>
-            <div class="info-card">
-                <div class="card-kicker">🖥️</div>
-                <h3>Monitores</h3>
-                <p><strong>40-60 unidades</strong></p>
-            </div>
-            <div class="info-card">
-                <div class="card-kicker">📡</div>
-                <h3>Access Points (Wi-Fi)</h3>
-                <p><strong>14-15 unidades</strong></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Servidor e Backup -->
-    <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 24px;">
-        <div class="info-card">
-            <div class="card-kicker">☁️</div>
-            <h3>Servidor</h3>
-            <p><strong>Cloud</strong> – Hospedado pela Ciberconceito</p>
-            <p style="margin-top: 8px;"><strong>Acesso IT:</strong> Login via browser</p>
-            <p><strong>Firewall:</strong> Fornecida pela Ciberconceito</p>
-        </div>
-        <div class="info-card">
-            <div class="card-kicker">💾</div>
-            <h3>Backup</h3>
-            <p><strong>Cloud</strong> + <strong>Disco rígido</strong></p>
-            <p>Frequência: <strong>Diária</strong> (Apenas cloud)</p>
-        </div>
-    </div>
-
-    <!-- Sistemas Operativos (clicável) -->
-    <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 24px;">
-        <div class="info-card clickable" onclick="mostrarAvisoSO()">
-            <div class="card-kicker">🖥️</div>
-            <h3>Sistemas Operativos <span style="color: var(--danger); font-size: 0.8rem;">⚠️</span></h3>
-            <div style="display: flex; gap: 10px; margin-top: 12px;">
-                <span style="background: var(--accent-soft); padding: 4px 12px; border-radius: 40px;">macOS</span>
-                <span style="background: var(--accent-soft); padding: 4px 12px; border-radius: 40px;">Windows</span>
-            </div>
-            <p style="margin-top: 12px; font-size: 0.7rem; color: var(--subtle);">🔍 Clica para ver aviso</p>
-        </div>
-
-        <!-- Aplicações com elementos clicáveis -->
-        <div class="info-card">
-            <div class="card-kicker">📱</div>
-            <h3>Aplicações e Ferramentas</h3>
-            <p><strong>Comunicação interna:</strong> <span class="clickable" onclick="mostrarAvisoWhatsApp()" style="color: var(--danger); cursor: pointer;">WhatsApp</span> · Microsoft Teams</p>
-            <p><strong>Comunicação clientes:</strong> Email · <span class="clickable" onclick="mostrarAvisoWhatsApp()" style="color: var(--danger); cursor: pointer;">WhatsApp</span></p>
-            <p><strong>Armazenamento cloud:</strong> <span class="clickable" onclick="mostrarAvisoClouds()" style="color: var(--danger); cursor: pointer;">Dropbox</span> · <span class="clickable" onclick="mostrarAvisoClouds()" style="color: var(--danger); cursor: pointer;">Google Drive</span> · <span class="clickable" onclick="mostrarAvisoClouds()" style="color: var(--danger); cursor: pointer;">Basecamp</span></p>
-        </div>
-    </div>
-
-    <!-- Infraestrutura Web -->
-    <div class="content-panel" style="max-width: 100%; margin-bottom: 16px;">
-        <h3 style="margin: 0;"> Infraestrutura Web</h3>
-    </div>
-    <div class="conduct-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
-        <div class="info-card">
-            <div class="card-kicker">⚙️</div>
-            <h3>Configuração</h3>
-            <p><strong>Painel:</strong> cPanel</p>
-            <p><strong>Web server:</strong> Nginx</p>
-            <p><strong>PHP:</strong> <span class="clickable" onclick="mostrarAvisoPHP()" style="color: var(--danger); cursor: pointer;">Versão 7.2 ⚠️</span></p>
-        </div>
-        <div class="info-card">
-            <div class="card-kicker">🗄️</div>
-            <h3>Base de Dados</h3>
-            <p><strong>Uma base por domínio</strong> (no servidor)</p>
-            <p style="margin-top: 8px; color: var(--success);"> Modelo seguro – isolamento entre domínios</p>
-        </div>
-    </div>
-
-    <!-- Data atualização -->
-    <div style="text-align: center; margin-top: 32px; color: var(--subtle); font-size: 0.75rem;">
-    </div>
-</section>
-
-       <section id="conduta" class="tab-content">
-            <div class="manual-container" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
-                
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <h2 style="color: var(--primary); font-size: 2rem;">
-                        <i class="fas fa-shield-halved"></i> Guia de Sobrevivência Digital
-                    </h2>
-                    <p style="color: #94a3b8;">Manual prático para quem não é da área de informática.</p>
-                </div>
-
-                <h3 style="border-bottom: 2px solid #334155; padding-bottom: 10px; margin-bottom: 20px;">
-                    <i class="fas fa-fire-extinguisher"></i> Em caso de Emergência (Clica para ver exemplos)
-                </h3>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px;">
-                    
-                    <div class="protocol-card" style="background: var(--card); padding: 25px; border-radius: 15px; border-left: 5px solid #3b82f6; cursor: pointer; transition: transform 0.2s;" 
-                        onclick="openManualImage('assets/phishing.png', 'Exemplo de um E-mail Falso')">
-                        <h3 style="color: #3b82f6;"><i class="fas fa-fish"></i> Phishing</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.4;">Criminosos fingem ser entidades confiáveis para roubar passwords.</p>
-                        <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin: 15px 0;">
-                            <small style="color: #3b82f6; font-weight: bold;">[ VER EXEMPLO REAL ]</small>
-                        </div>
-                    </div>
-
-                    <div class="protocol-card" style="background: var(--card); padding: 25px; border-radius: 15px; border-left: 5px solid #ef4444; cursor: pointer; transition: transform 0.2s;"
-                        onclick="openManualImage('assets/ransomware.png', 'Exemplo de um Ecrã de Bloqueio')">
-                        <h3 style="color: #ef4444;"><i class="fas fa-biohazard"></i> Ransomware</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.4;">Vírus que bloqueia ficheiros e pede resgate.</p>
-                        <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; margin: 15px 0;">
-                            <small style="color: #ef4444; font-weight: bold;">[ VER ECRÃ DE BLOQUEIO ]</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="display: flex; align-items: center; margin: 40px 0 25px 0;">
-                <div style="background: rgba(16, 185, 129, 0.1); padding: 10px; border-radius: 8px;">
-                    <i class="fas fa-user-check" style="color: #10b981; font-size: 1.2rem;"></i>
-                </div>
-                <h3 style="color: #f8fafc; margin-left: 15px; font-size: 1.1rem; font-weight: 700;">Boas Práticas Diárias</h3>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
-                
-                <div class="protocol-card" style="background: #1e1e24; padding: 20px; border-radius: 12px; border-bottom: 4px solid #6d5dfc; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px;" 
-                    onclick="openPracticePopup('Bloqueio de Ecrã', 'Sempre que se ausentar da sua secretária, utilize o atalho <b>Win + L</b>. Isto garante que ninguém possa ver ou mexer nos seus dados enquanto está fora.','Use Win+L; configure bloqueio automático para ≤5 minutos; proteja o seu PIN e não partilhe credenciais.')">
-                    <h4 style="color: #f8fafc; font-size: 1.2rem; font-weight: 700; margin: 0;">Bloqueio (Win+L)</h4>
-                    <div style="background: rgba(109, 93, 252, 0.1); padding: 10px; border-radius: 10px; width: fit-content;">
-                        <i class="fas fa-desktop" style="color: #6d5dfc; font-size: 1.2rem;"></i>
-                    </div>
-                    <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">Segurança Física</p>
-                </div>
-
-                <div class="protocol-card" style="background: #1e1e24; padding: 20px; border-radius: 12px; border-bottom: 4px solid #6d5dfc; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px;" 
-                    onclick="openPracticePopup('Dispositivos USB', 'Nunca ligue pen drives ou cabos encontrados na rua. Dispositivos desconhecidos podem conter malware que infeta o PC instantaneamente.','Nunca ligue dispositivos USB desconhecidos; entregue-os ao TI para análise e use scanners antes de abrir ficheiros.')">
-                    <h4 style="color: #f8fafc; font-size: 1.2rem; font-weight: 700; margin: 0;">Dispositivos USB</h4>
-                    <div style="background: rgba(109, 93, 252, 0.1); padding: 10px; border-radius: 10px; width: fit-content;">
-                        <i class="fas fa-usb" style="color: #6d5dfc; font-size: 1.2rem;"></i>
-                    </div>
-                    <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">Hardware Externo</p>
-                </div>
-
-                <div class="protocol-card" style="background: #1e1e24; padding: 20px; border-radius: 12px; border-bottom: 4px solid #6d5dfc; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px;" 
-                    onclick="openPracticePopup('Shadow IT', 'Evite conversores de PDF online não aprovados. Ao fazer upload de documentos da empresa, perde o controlo sobre a privacidade desses dados.','Não use ferramentas não aprovadas; peça ao TI soluções autorizadas e evite expor dados sensíveis fora das plataformas corporativas.')">
-                    <h4 style="color: #f8fafc; font-size: 1.2rem; font-weight: 700; margin: 0;">Shadow IT</h4>
-                    <div style="background: rgba(109, 93, 252, 0.1); padding: 10px; border-radius: 10px; width: fit-content;">
-                        <i class="fas fa-cloud-upload-alt" style="color: #6d5dfc; font-size: 1.2rem;"></i>
-                    </div>
-                    <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">Ferramentas Web</p>
-                </div>
-
-                </div>
-
-            <div id="practicePopup" onclick="if(event.target===this){closePracticePopup();}" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); align-items: center; justify-content: center; padding: 16px;">
-                <div style="background: #1e1e24; width: 90%; max-width: 450px; padding: 30px; border-radius: 15px; border: 1px solid #333; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5); margin: auto;">
-                    
-                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                        <span style="color: #ef4444; font-size: 1.2rem; margin-right: 10px;">⚠️</span>
-                        <h3 id="popupTitle" style="color: #ef4444; font-size: 1.1rem; font-weight: 700; margin: 0;">Aviso de Segurança</h3>
-                        <span onclick="closePracticePopup()" style="position: absolute; right: 25px; top: 25px; color: #94a3b8; cursor: pointer; font-size: 1.5rem;">&times;</span>
-                    </div>
-
-                    <p id="popupContent" style="color: #f8fafc; font-size: 1rem; line-height: 1.6; margin-bottom: 25px; text-align: left;"></p>
-
-                    <div style="display: flex; align-items: flex-start; background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 8px; text-align: left;">
-                        <span style="margin-right: 10px;">✅</span>
-                        <p id="popupRecommendation" style="color: #10b981; font-size: 0.85rem; margin: 0;"><b>Recomendação:</b> Padroneze o uso de sistemas e reporte atividades suspeitas imediatamente.</p>
-                    </div>
-                </div>
-            </div>
-
-        <div id="manualImageModal" class="modal" onclick="if(event.target===this){closeManualModal();}" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 16px;">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: min(560px, 92vw); max-height: 90vh; overflow: auto; background: #1e293b; padding: 30px; border-radius: 15px; border: 2px solid var(--primary); text-align: center; box-shadow: 0 0 30px rgba(0,0,0,0.5);" onclick="event.stopPropagation()">
-                <img id="manualImgSlot" style="max-width: 100%; max-height: 65vh; border: 2px solid var(--primary); border-radius: 10px; display: none;">
-                <p id="manualImgCaption" style="color: white; margin-top: 20px; font-family: sans-serif; font-size: 1.2rem;"></p>
-                <button onclick="closeManualModal()" style="margin-top: 20px; padding: 10px 20px; background: var(--primary); border: none; color: white; border-radius: 5px; cursor: pointer;">Fechar</button>
-            </div>
-        </div>
-        </section>
-
-        <section id="phishing" class="tab-content">
+        <section id="phishing" class="tab-content page-section" tabindex="-1">
             <div class="game-header">
-                <h2>Desafio: Phishing ou não?</h2>
-                <div class="progress-container">
-                    <div id="progress-bar" class="progress-bar"></div>
+                <div>
+                    <p class="eyebrow">Simulação prática</p>
+                    <h2>Phishing ou seguro?</h2>
+                    <p>Analise o email, procure sinais de fraude e decida antes de clicar.</p>
                 </div>
-                <p id="question-number">Pergunta 1 de 5</p>
+                <div class="progress-wrap" aria-label="Progresso do simulador">
+                    <div class="progress-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <p id="question-number">Pergunta 1 de 5</p>
+                </div>
             </div>
 
-            <div id="game-box" class="game-container">
-                <div class="email-zoom-container">
-                    <img id="email-image" src="" alt="Exame de e-mail">
-                </div>
-
-                <div class="game-controls">
-                    <button class="btn btn-real" onclick="checkAnswer(true)">Parece Seguro</button>
-                    <button class="btn btn-phishing" onclick="checkAnswer(false)">É Phishing</button>
-                </div>
-                <div id="feedback" class="feedback"></div>
-            </div>
-        </section> 
+            <div id="game-box" class="game-container"></div>
+        </section>
     </main>
-    <div id="avisoModal" class="modal">
+
+    <footer class="site-footer">
+        <p>Boca do Lobo | Plataforma interna de Cybersecurity Awareness | Copyright 2026</p>
+    </footer>
+
+    <div id="info-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
         <div class="modal-content">
-            <div class="modal-header">
-                <h3>⚠️ Aviso de Segurança</h3>
-                <button class="modal-close" onclick="fecharModal()">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                
-            </div>
+            <button class="modal-close" type="button" aria-label="Fechar janela">×</button>
+            <h3 id="modal-title"></h3>
+            <div id="modal-body" class="modal-body"></div>
         </div>
     </div>
+
+    <div id="image-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="image-modal-title" hidden>
+        <div class="modal-content modal-content-wide">
+            <button class="modal-close" type="button" aria-label="Fechar janela">×</button>
+            <h3 id="image-modal-title">Exemplo educativo</h3>
+            <img id="manual-image" src="" alt="">
+            <p id="manual-caption"></p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

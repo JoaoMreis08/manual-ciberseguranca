@@ -2,26 +2,47 @@
     {
         "image": "assets/p1.png",
         "isReal": false,
-        "explanation": "Phishing. O e-mail utiliza um tom de urgência para forçar a clicar. Além disso, mistura idiomas e utiliza links genéricos como 'Clique aqui', uma tática comum para esconder URLs maliciosos."
+        "explanation": "Phishing. O email utiliza um tom de urgência para forçar o clique. Além disso, mistura idiomas e usa links genéricos como 'Clique aqui', uma tática comum para esconder URLs maliciosos."
     },
     {
         "image": "assets/p2.png",
         "isReal": false,
-        "explanation": "Phishing claro. O endereço do remetente (amazon.service@013802mail.com) não é um domínio oficial da Amazon. O e-mail pede informações sensíveis como morada e password por telefone, algo que empresas legítimas nunca fazem."
+        "explanation": "Phishing claro. O endereço do remetente (amazon.service@013802mail.com) não é um domínio oficial da Amazon. O email pede informações sensíveis como morada e password por telefone, algo que empresas legítimas nunca fazem."
     },
     {
         "image": "assets/p3.png",
         "isReal": false,
-        "explanation": "Tentativa de Phishing. Embora o design imite a Google, o remetente real é 'info@bewaterwebdesign.com', um domínio externo que não pertence à Google. O e-mail tenta criar pânico ao ameaçar a suspensão de serviços em 10 dias."
+        "explanation": "Tentativa de phishing. Embora o design imite a Google, o remetente real é 'info@bewaterwebdesign.com', um domínio externo que não pertence à Google. O email tenta criar pânico ao ameaçar a suspensão de serviços em 10 dias."
     },
     {
         "image": "assets/r1.png",
         "isReal": true,
-        "explanation": "E-mail Legítimo. O remetente é 'no-reply@accounts.google.com', o domínio oficial de segurança da Google. O link exibido para verificação (myaccount.google.com/notifications) é o endereço oficial e seguro da plataforma."
+        "explanation": "Email legítimo. O remetente é 'no-reply@accounts.google.com', domínio oficial de segurança da Google. O link exibido para verificação (myaccount.google.com/notifications) é um endereço oficial da plataforma."
     },
     {
-    "image": "assets/p4.png",
-    "isReal": false,
-    "explanation": "Phishing. O sinal mais óbvio é o endereço do remetente (ehjwqmh@lixhbdde.nkt.zarnelixa.org), que é uma sequência aleatória de caracteres e não pertence a nenhum serviço de cloud conhecido (como Google, iCloud ou Dropbox). Além disso, utiliza pressão psicológica ao alertar para uma 'Falha de Pagamento' para forçar o utilizador a clicar rapidamente."
+        "image": "assets/p4.png",
+        "isReal": false,
+        "explanation": "Phishing. O sinal mais óbvio é o endereço do remetente (ehjwqmh@lixhbdde.nkt.zarnelixa.org), uma sequência aleatória de caracteres que não pertence a nenhum serviço de cloud conhecido. Além disso, usa pressão psicológica com uma falha de pagamento para forçar uma ação rápida."
+    },
+    {
+        "image": "assets/p5.png",
+        "isReal": false,
+        "explanation": "Tentativa de Phishing. O e-mail tenta assustar o utilizador com um ultimato de bloqueio em 24 horas. O link fornecido para resolver o problema aponta para 'trackandanalysis.org', que não é um domínio oficial da Meta ou do Facebook."
+    },
+    {
+        "image": "assets/p6.png",
+        "isReal": false,
+        "explanation": "Fraude de Faturação (Invoice Scam). Embora use o logótipo da Microsoft, o e-mail foi enviado para um endereço genérico ('invoice-1481@hitup.us') em vez do e-mail do utilizador. Além disso, inclui um número de telefone internacional para forçar a vítima a ligar e dar dados bancários por voz."
+    },
+    {
+        "image": "assets/p7.png",
+        "isReal": false,
+        "explanation": "Phishing de Confirmação de Compra. Trata o utilizador por 'Dear customer' (saudação genérica) em vez do nome próprio registado na Amazon. O e-mail também pressiona o utilizador a ligar para um suporte telefónico falso caso queira cancelar a compra fictícia de portáteis Dell."
+    },
+    {
+        "image": "assets/p8.png",
+        "isReal": false,
+        "explanation": "Fraude de Reembolso (Refund Scam). A saudação inicial é um erro técnico bizarro ('Dear USR/CVPL/CVPLT'), o que demonstra falha na automatização do ataque. O valor exagerado de $899.99 serve para criar pânico imediato e fazer a vítima ligar para o número de suporte falso listado a laranja."
     }
 ]
+
