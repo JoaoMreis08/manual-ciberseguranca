@@ -7,17 +7,12 @@
     {
         "image": "assets/p2.png",
         "isReal": false,
-        "explanation": "Phishing claro. O endereço do remetente (amazon.service@013802mail.com) não é um domínio oficial da Amazon. O email pede informações sensíveis como morada e password por telefone, algo que empresas legítimas nunca fazem."
+        "explanation": "Phishing. Embora o remetente pareça disfarçado como 'service@paypal.com', o conteúdo do e-mail é um esquema de fraude de faturas pendentes. Utiliza uma saudação genérica ('Hello, Receipt98736c') em vez do nome real e tenta assustar o utilizador mencionando uma suposta transação de $910.45 em criptomoedas para forçar o clique num botão de perfil criado por criminosos."
     },
     {
         "image": "assets/p3.png",
         "isReal": false,
-        "explanation": "Tentativa de phishing. Embora o design imite a Google, o remetente real é 'info@bewaterwebdesign.com', um domínio externo que não pertence à Google. O email tenta criar pânico ao ameaçar a suspensão de serviços em 10 dias."
-    },
-    {
-        "image": "assets/r1.png",
-        "isReal": true,
-        "explanation": "Email legítimo. O remetente é 'no-reply@accounts.google.com', domínio oficial de segurança da Google. O link exibido para verificação (myaccount.google.com/notifications) é um endereço oficial da plataforma."
+        "explanation": "Phishing. Embora o design imite a Google, o remetente real é 'info@bewaterwebdesign.com', um domínio externo que não pertence à Google. O email tenta criar pânico ao ameaçar a suspensão de serviços em 10 dias."
     },
     {
         "image": "assets/p4.png",
@@ -27,7 +22,7 @@
     {
         "image": "assets/p5.png",
         "isReal": false,
-        "explanation": "Tentativa de Phishing. O e-mail tenta assustar o utilizador com um ultimato de bloqueio em 24 horas. O link fornecido para resolver o problema aponta para 'trackandanalysis.org', que não é um domínio oficial da Meta ou do Facebook."
+        "explanation": "Phishing. O e-mail tenta assustar o utilizador com um ultimato de bloqueio em 24 horas. O link fornecido para resolver o problema aponta para 'trackandanalysis.org', que não é um domínio oficial da Meta ou do Facebook."
     },
     {
         "image": "assets/p6.png",
@@ -43,6 +38,26 @@
         "image": "assets/p8.png",
         "isReal": false,
         "explanation": "Fraude de Reembolso (Refund Scam). A saudação inicial é um erro técnico bizarro ('Dear USR/CVPL/CVPLT'), o que demonstra falha na automatização do ataque. O valor exagerado de $899.99 serve para criar pânico imediato e fazer a vítima ligar para o número de suporte falso listado a laranja."
+    },
+    {
+        "image": "assets/r1.png",
+        "isReal": true,
+        "explanation": "Email legítimo. O remetente é 'no-reply@accounts.google.com', domínio oficial de segurança da Google. O link exibido para verificação (myaccount.google.com/notifications) é um endereço oficial da plataforma."
+    },
+    {
+        "image": "assets/r2.png",
+        "isReal": true,
+        "explanation": "E-mail Legítimo. Trata-se de um recibo real da Apple. O endereço do remetente está devidamente assinado pelo domínio oficial 'email.apple.com', contém o nome real do utilizador ('Danny Rico') no corpo do texto e detalha corretamente uma subscrição ativa (Apple One) com o ID de documento e endereço de cobrança estruturados."
+    },
+    {
+        "image": "assets/r3.png",
+        "isReal": true,
+        "explanation": "E-mail Legítimo. É uma notificação real do PayPal a avisar que existem novas mensagens seguras no portal. O remetente utiliza o subdomínio oficial seguro 'no_reply@communications.paypal.com' (com o respetivo selo de verificação azul do cliente de e-mail) e inclui a saudação personalizada correta com o nome do utilizador ('Olá, João Reis.')."
+    },
+    {
+    "image": "assets/r4.png",
+    "isReal": true,
+    "explanation": "E-mail Legítimo. Embora ofertas gratuitas gerem desconfiança, este e-mail é real. O remetente é o domínio oficial '@spotify.com' e os cabeçalhos de segurança mostram criptografia padrão TLS válida. Além disso, o e-mail inclui o botão nativo de 'Unsubscribe' (Cancelar subscrição) gerido pela plataforma de correio, típico de campanhas de marketing verdadeiras."
     }
 ]
 

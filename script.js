@@ -21,7 +21,7 @@
             title: "Ransomware",
             risk: "Alto",
             description: "Malware que cifra ficheiros e exige resgate, normalmente após anexo, link ou acesso roubado.",
-            prevention: "Nao abra anexos inesperados, mantenha backups e reporte comportamentos estranhos."
+            prevention: "Não abra anexos inesperados, mantenha backups e reporte comportamentos estranhos."
         },
         {
             icon: "ES",
@@ -49,7 +49,7 @@
             title: "USB Maliciosos",
             risk: "Medio",
             description: "Dispositivo físico preparado para instalar malware ou executar comandos no computador.",
-            prevention: "Nunca ligue dispositivos desconhecidos; entregue-os ao IT."
+            prevention: "Nunca ligue dispositivos desconhecidos, entregue-os ao IT."
         },
         {
             icon: "QR",
@@ -94,7 +94,7 @@
     };
 
     const incidentSteps = [
-        "Nao clique novamente e nao tente testar o link ou anexo.",
+        "Não clique novamente e nao tente testar o link ou anexo.",
         "Se introduziu credenciais, avise imediatamente o IT e altere a password conforme orientação.",
         "Tire screenshot da mensagem, página, erro ou comportamento suspeito.",
         "Não apague o email, chat ou ficheiro, preserve evidências para análise.",
@@ -104,7 +104,7 @@
 
     const passwordChecklist = [
         "Passwords longas, únicas e geradas por gestor de passwords.",
-        "Passphrases com várias palavras quando precisar memorizar.",
+        "Passwords com várias palavras quando precisar de memorizar.",
         "MFA ativo em email, cloud, VPN, bancos e ferramentas críticas.",
         "Nunca aprovar MFA inesperado ou repetido.",
         "Não guardar passwords em notas, browsers partilhados ou ficheiros.",
@@ -147,8 +147,8 @@
             <img id="email-image" src="" alt="Email para analise">
         </div>
         <div class="game-controls">
-            <button class="btn btn-real" id="btn-real" type="button">Parece seguro</button>
-            <button class="btn btn-phishing" id="btn-phishing" type="button">E phishing</button>
+            <button class="btn btn-real" id="btn-real" type="button">É seguro</button>
+            <button class="btn btn-phishing" id="btn-phishing" type="button">Phishing</button>
         </div>
         <div id="feedback" class="feedback" aria-live="polite"></div>
         <div id="answer-explanation" class="answer-explanation" hidden></div>
