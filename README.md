@@ -1,29 +1,24 @@
-#  Cybersecurity Hub
+# Cybersecurity Hub
 
-**Plataforma interna de sensibilização para cibersegurança** – desenvolvida para uma empresa de mobiliário de luxo.
+Plataforma interna de sensibilização para cibersegurança desenvolvida para reforçar a proteção digital e a consciência organizacional dentro de uma empresa de mobiliário de luxo.
 
----
+## Sobre o Projeto
 
-##  Sobre o Projeto
+O Cybersecurity Hub foi criado para:
 
-O **Cybersecurity Hub** é uma website criado para:
+- Sensibilizar colaboradores para ameaças digitais reais
+- Fornecer um manual de conduta em cibersegurança
+- Demonstrar a infraestrutura tecnológica da empresa
+- Identificar potenciais vulnerabilidades internas
+- Educar através de um simulador interativo de phishing
 
-- **Sensibilizar** colaboradores sobre boas práticas de cibersegurança
-- **Mapear** a infraestrutura tecnológica da empresa (parque informático, servidores, aplicações)
-- **Educar** através de um simulador interativo de phishing
-- **Prevenir** ataques cibernéticos com um manual de conduta digital
-
----
-
-##  Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **HTML5** – Estrutura da plataforma
-- **CSS3** – Estilização personalizada com design dark/glassmorphism
-- **JavaScript** – Interatividade (tabs, modal, jogo de phishing)
-- **Google Fonts** – Tipografia Inter
-- **Font Awesome** – Ícones (via CDN)
-
----
+- **CSS3** – Design dark mode / glassmorphism
+- **JavaScript** – Funcionalidades interativas
+- **Google Fonts (Inter)** – Tipografia
+- **Font Awesome** – Ícones visuais
 
 ##  Detalhes da Infraestrutura (mapeada)
 
@@ -40,36 +35,32 @@ O **Cybersecurity Hub** é uma website criado para:
 | Web Server | Nginx + PHP 7.2 + cPanel |
 | Base de Dados | Uma base por domínio (modelo seguro) |
 
----
+### Alertas Interativos
+A plataforma apresenta avisos de segurança ao explorar componentes da infraestrutura, destacando possíveis riscos.
 
-##  Avisos de Segurança (interativos)
+## Simulador de Phishing
 
-Ao clicar em certos elementos da secção **Infraestrutura**, são apresentados avisos sobre possíveis vetores de ataque.
+Ferramenta educativa com:
 
----
+- Classificação de e-mails
+- Feedback imediato
+- Progressão por etapas
+- Treino de identificação de ataques de phishing
 
-##  Simulador de Phishing
+## Manual de Conduta
 
-O jogo apresenta 5 e-mails (imagens placeholder) e o utilizador deve classificar cada um como:
+Conteúdos abordados no website:
 
--  **Parece Seguro**
--  **É Phishing!**
+- Phishing
+- Ransomware
+- Vishing
+- Programas piratas
+- Bloqueio de ecrã
+- Pen drives desconhecidas
+- Smishing
 
-Após cada resposta, é dado feedback e a barra de progresso é atualizada.
+## Objetivo
 
----
-
-##  Manual de Conduta – Conteúdos
-
-### Emergências
-- Phishing – como identificar e agir
-- Ransomware – como reagir num ataque
-
-### Boas Práticas Diárias
-- Enganos por telefone (Vishing)
-- Riscos de programas piratas
-- Bloqueio de ecrã (Win + L)
-- Perigos de Pen Drives encontradas
-- Smishing (SMS falsos)
+Promover uma cultura de segurança digital, reduzindo o risco humano e melhorando a resposta a incidentes cibernéticos.
 
 
